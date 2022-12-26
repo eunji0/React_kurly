@@ -1,0 +1,12 @@
+
+.ttop{
+    position: relative;
+    width: 1050px;
+    height: 100px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: bisque;
+    display: flex;
+    align-self: center;
+}

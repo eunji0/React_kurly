@@ -2,6 +2,14 @@ import React from "react";
 
 export default function Main(){
     return(
-        <div>main</div>
+        <div>
+            <div className="mainTop">
+                <div className="ttop">
+                    <div className="ttop-signmenu"></div>
+                    <div className="ttop-searhbar"></div>
+                </div>
+                <div className="top-menu"></div>
+            </div>
+        </div>
     )
 }
