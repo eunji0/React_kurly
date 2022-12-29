@@ -1,12 +1,19 @@
 
-.ttop{
-    position: relative;
-    width: 1050px;
+.ttop {
+    background-color: olive;
     height: 100px;
-    margin-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: bisque;
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+    display: block;
+}
+
+.top-menu {
+    background-color: orange;
+    height: 56px;
+}
+
+.ttop-signmenu {
     display: flex;
-    align-self: center;
+    align-items: flex-end;
 }
