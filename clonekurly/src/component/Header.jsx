@@ -7,7 +7,7 @@ import { ReactComponent as Heart } from "../svg/Heart.svg";
 import { ReactComponent as Cart } from "../svg/Cart.svg";
 import { ReactComponent as Menu } from "../svg/Menu.svg";
 
-export default function Main() {
+export default function Header() {
     return (
         <div>
             <div className="mainTop">
