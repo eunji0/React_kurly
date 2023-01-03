@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./component/Header";
 import Content from "./component/Content";
@@ -17,7 +16,6 @@ function App() {
          <Route path="login" element={<Login/>}/>
       </Routes>
       </BrowserRouter>
-      <Main/>
     </div>
   );
 }
