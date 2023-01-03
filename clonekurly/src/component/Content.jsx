@@ -1,9 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
+import { bannerdummy } from "../bannerdummy";
+import styled from "styled-components";
 
 export default function Content() {
+
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -12,28 +15,21 @@ export default function Content() {
 
     return (
         <div>
-            1234
             <div className="mainBanner">
-                <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                </Slider>
+                <div className="bannerinner">
+                    <Slider {...settings}>
+                        {/* {
+                            bannerdummy.results.map(item => (
+                                <img src={item.img} />
+                            ))
+                        } */}
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                    </Slider>
+                </div>
+
             </div>
         </div>
     );

@@ -6,6 +6,16 @@ import { ReactComponent as Address } from "../svg/Address.svg";
 import { ReactComponent as Heart } from "../svg/Heart.svg";
 import { ReactComponent as Cart } from "../svg/Cart.svg";
 import { ReactComponent as Menu } from "../svg/Menu.svg";
+import styled from "styled-components";
+
+const StyledSearch = styled.button`
+  background-color: transparent;
+  border: none;
+  padding-top: 5px;
+`;
+
+  /* color: ${(props) => props.color || "gray"};
+  background: ${(props) => props.background || "white"}; */
 
 export default function Header() {
     return (
@@ -40,7 +50,7 @@ export default function Header() {
                             </div>
                             <div className="tin12-c">
                                 <input placeholder="검색어를 입력해주세요. " className="searchinput"/>
-                                <div className="mainsearch"><Search /></div>
+                                <StyledSearch><Search /></StyledSearch>
                             </div>
                             <div>
                             <div className="tin12-la">
