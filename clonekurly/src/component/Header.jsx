@@ -27,7 +27,7 @@ export default function Header() {
                         <div className="top-in11">
                             <div>
                                 <div className="signbox">
-                                    <span className="sign">회원가입</span>
+                                    <Link to="/signup" className="sign">회원가입</Link>
                                     <span className="bar">|</span>
                                     <Link to="/login" className="login">로그인</Link>
                                     <span className="bar">|</span>

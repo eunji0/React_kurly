@@ -26,7 +26,7 @@ export default function Login() {
     `
 
     const Inputbox = styled.div`
-        margin-top: ${(props)=>props.marginTop};;
+        margin-top: ${(props)=>props.marginTop};
         width: 340px;
     `
 
