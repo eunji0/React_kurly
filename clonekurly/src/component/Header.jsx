@@ -7,6 +7,7 @@ import { ReactComponent as Heart } from "../svg/Heart.svg";
 import { ReactComponent as Cart } from "../svg/Cart.svg";
 import { ReactComponent as Menu } from "../svg/Menu.svg";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const StyledSearch = styled.button`
   background-color: transparent;
@@ -28,7 +29,7 @@ export default function Header() {
                                 <div className="signbox">
                                     <span className="sign">회원가입</span>
                                     <span className="bar">|</span>
-                                    <span className="login">로그인</span>
+                                    <Link to="/login" className="login">로그인</Link>
                                     <span className="bar">|</span>
                                     <span className="client">고객센터</span>
                                     <img alt="" className="down" src="https://res.kurly.com/pc/ico/1908/ico_down_16x10.png" />
@@ -38,9 +39,9 @@ export default function Header() {
                         </div>
                         <div className="top-in12">
                             <div className="tin12-l">
-                                <div className="logo">
+                                <Link to="/" className="logo">
                                     <Logo />
-                                </div>
+                                </Link>
                                 <div className="tin12-1c">마켓컬리</div>
                                 <span className="bar">|</span>
                                 <div className="tin12-1r">뷰티컬리</div>

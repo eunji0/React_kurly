@@ -194,17 +194,3 @@
     font-weight: 200;
     color: #333;
 }
-
-.mainBanner {
-    height: 370px;
-}
-
-.bannerinner {
-    width: 1519.2px;
-    height: 100%;
-    background-color: yellow;
-}
-
-.slick-track {
-    width: 1519.2px !important;
-}
