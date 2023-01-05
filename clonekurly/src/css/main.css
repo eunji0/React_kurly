@@ -194,3 +194,15 @@
     font-weight: 200;
     color: #333;
 }
+
+.bsFPDE {
+    padding-top: 10px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+.radiolabel {
+    display: flex;
+    flex-direction: row;
+} */

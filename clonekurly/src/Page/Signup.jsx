@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
+import RadioGroup from "../component/RadioGroup";
+import Radio from "../component/Radio";
 
 export default function Signup() {
+    const [value, setValue] = useState("Gender");
 
     const BackSign = styled.div`
     margin-top: 50px;
@@ -26,11 +30,11 @@ export default function Signup() {
 
     const Necinput =styled.div`
         padding-bottom: 10px;
-        border-bottom: 2px solid rgb(51, 51, 51);
+        border-bottom: ${(props)=>props.borderBottom || "2px solid rgb(51, 51, 51)"};
         font-size: 12px;
         color: rgb(102, 102, 102);
         line-height: 17px;
-        text-align: right;
+        text-align: ${(props)=> props.textAlign || "right"};
     `
 
     const Inputbox = styled.div`
@@ -64,10 +68,25 @@ export default function Signup() {
     color: #333;
     outline: none;
     box-sizing: border-box;
-        
     `
+
+    const Addressbtn = styled.button`
+        width: 100%;
+    height: 48px;
+    padding: 0 11px 1px 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(95, 0, 128); 
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(95, 0, 128);
+    outline: none;
+    box-sizing: border-box;
+    `
+
     const BoxDup = styled.button`
-        width: 120px;
+    width: ${(props)=> props.width || "120px"};
     margin-left: 8px;
     height: 48px;
     border-radius: 3px;
@@ -88,6 +107,7 @@ export default function Signup() {
     margin-left: 8px;
     height: 44px;
     `
+
 
     return (
         <div>
@@ -125,6 +145,26 @@ export default function Signup() {
                         <Boxtxtid>휴대폰<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
                         <Boxinput><Innerboxinput placeholder="숫자만 입력해주세요"></Innerboxinput></Boxinput>
                         <BoxDup border="1px solid rgb(221, 221, 221)" color="rgb(221, 221, 221)">인증번호 받기</BoxDup>
+                        </Inputbox>
+                        <Inputbox>
+                        <Boxtxtid>주소<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
+                        <Boxinput>
+                            <Addressbtn>주소 검색</Addressbtn>
+                        </Boxinput>
+                        <img style={{position:"relative", right:"210px"}} alt="" src="https://res.kurly.com/pc/service/cart/2007/ico_search.svg"/>
+                         <Emptydup/>
+                        </Inputbox>
+                        <Necinput borderBottom="none" textAlign="center" style={{marginRight:"80px"}}>배송지에 따라 상품 정보가 달라질 수 있습니다.</Necinput>
+                        <Inputbox>
+                        <Boxtxtid>성별<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
+                            <Boxinput>
+                                <RadioGroup value={value} onChange={setValue}>
+                                    <Radio value="FEMAIL">남자</Radio>
+                                    <Radio value="MAIL">여자</Radio>
+                                    <Radio value="NONE">선택안함</Radio>
+                                </RadioGroup>
+                            </Boxinput>
+                        <Emptydup/>
                         </Inputbox>
                     </div>
                 </Innerbox>
