@@ -1,10 +1,17 @@
-import { createContext } from "react";
+import styled from "styled-components";
 
-export default function RadioGroup({ label, children, ...rest }) {
-    const RadioContext = createContext({});
-  return (
-      <RadioContext.Provider value={rest}>{children}</RadioContext.Provider>
-  );
-}
+export default function RadioGroup({  children }) {
 
-  {/* <legend>{label}</legend> */}
+    const Radiogroup = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+    `
+
+    return (
+        <Radiogroup>
+        {children}
+        </Radiogroup>
+    );
+  }

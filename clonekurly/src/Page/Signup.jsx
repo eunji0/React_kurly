@@ -29,12 +29,14 @@ export default function Signup() {
     `
 
     const Necinput =styled.div`
+        position: relative;
         padding-bottom: 10px;
         border-bottom: ${(props)=>props.borderBottom || "2px solid rgb(51, 51, 51)"};
         font-size: 12px;
         color: rgb(102, 102, 102);
         line-height: 17px;
         text-align: ${(props)=> props.textAlign || "right"};
+        bottom: ${(props)=> props.bottom || "0px"};
     `
 
     const Inputbox = styled.div`
@@ -149,19 +151,31 @@ export default function Signup() {
                         <Inputbox>
                         <Boxtxtid>주소<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
                         <Boxinput>
+                            <div style={{display:"flex", flexDirection:"column"}}>
+                            <div style={{height:"48px"}}>
                             <Addressbtn>주소 검색</Addressbtn>
+                            <img style={{position:"relative", left:"110px", bottom:"35px"}} alt="" src="https://res.kurly.com/pc/service/cart/2007/ico_search.svg"/>
+                            </div>
+                            <div>
+                            <Necinput borderBottom="none" textAlign="center" style={{marginRight:"80px", top:"8px"}}>배송지에 따라 상품 정보가 달라질 수 있습니다.</Necinput>
+                            </div>
+                            </div>
                         </Boxinput>
-                        <img style={{position:"relative", right:"210px"}} alt="" src="https://res.kurly.com/pc/service/cart/2007/ico_search.svg"/>
-                         <Emptydup/>
+                        <Emptydup/>
                         </Inputbox>
-                        <Necinput borderBottom="none" textAlign="center" style={{marginRight:"80px"}}>배송지에 따라 상품 정보가 달라질 수 있습니다.</Necinput>
                         <Inputbox>
                         <Boxtxtid>성별<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
                             <Boxinput>
-                                <RadioGroup value={value} onChange={setValue}>
-                                    <Radio value="FEMAIL">남자</Radio>
-                                    <Radio value="MAIL">여자</Radio>
-                                    <Radio value="NONE">선택안함</Radio>
+                                <RadioGroup>
+                                    <Radio name="contact" value="MAIL" defaultChecked>
+                                        남자
+                                    </Radio>
+                                    <Radio name="contact" value="FEMAIL">
+                                        여자
+                                    </Radio>
+                                    <Radio name="contact" value="NONE">
+                                        선택 없음
+                                    </Radio>
                                 </RadioGroup>
                             </Boxinput>
                         <Emptydup/>
