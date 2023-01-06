@@ -5,7 +5,6 @@ import RadioGroup from "../component/RadioGroup";
 import Radio from "../component/Radio";
 
 export default function Signup() {
-    const [value, setValue] = useState("Gender");
 
     const BackSign = styled.div`
     margin-top: 50px;
@@ -42,7 +41,7 @@ export default function Signup() {
     const Inputbox = styled.div`
         display: inline-flex;
         width: 100%;
-        padding: 10px 20px;
+        padding: ${(props)=> props.padding || "10px 20px"};
     `
 
     const Boxtxtid = styled.div`
@@ -110,6 +109,52 @@ export default function Signup() {
     height: 44px;
     `
 
+    const Divbirth =styled.div`
+    height: 44px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    padding: 0px 15px;
+    `
+
+    const Inputbirth = styled.input`
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    height: 40px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    font-weight: 400;
+    line-height: 38px;
+    color: rgb(51, 51, 51);
+    outline: none;
+    box-sizing: border-box;
+    `
+
+    const Divcircle =styled.div`
+    display: flex;
+    padding: 8px 0px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    `
+
+    const Divcircle2 =  styled.div`
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 12px;
+    display: flex;
+    padding: 8px 0px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    `
+
 
     return (
         <div>
@@ -164,7 +209,7 @@ export default function Signup() {
                         <Emptydup/>
                         </Inputbox>
                         <Inputbox>
-                        <Boxtxtid>성별<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
+                        <Boxtxtid>성별</Boxtxtid>
                             <Boxinput>
                                 <RadioGroup>
                                     <Radio name="contact" value="MAIL" defaultChecked>
@@ -180,7 +225,57 @@ export default function Signup() {
                             </Boxinput>
                         <Emptydup/>
                         </Inputbox>
+                        <Inputbox>
+                        <Boxtxtid>생년월일</Boxtxtid>
+                        <Boxinput>
+                            <Divbirth>
+                                <div>
+                                    <div style={{position:"relative", height:"40px"}}>
+                                        <Inputbirth placeholder="YYYY"></Inputbirth>
+                                    </div>
+                                </div>
+                                <span style={{color:"rgb(204, 204, 204)"}}>/</span>
+                                <div><div style={{position:"relative", height:"40px"}}>
+                                        <Inputbirth placeholder="MM"></Inputbirth>
+                                    </div></div>
+                                <span style={{color:"rgb(204, 204, 204)"}}>/</span>
+                                <div><div style={{position:"relative", height:"40px"}}>
+                                        <Inputbirth placeholder="DD"></Inputbirth>
+                                    </div></div>
+                            </Divbirth>
+                        </Boxinput>
+                        <Emptydup/>
+                        </Inputbox>
+                        <Inputbox>
+                        <Boxtxtid>추가입력 사항</Boxtxtid>
+                            <Boxinput>
+                                <RadioGroup>
+                                    <Radio name="contact" value="freindid" defaultChecked>
+                                        친구초대 추천인 아이디
+                                    </Radio>
+                                    <Radio name="contact" value="eventName">
+                                        참여 이벤트명
+                                    </Radio>
+                                </RadioGroup>
+                            </Boxinput>
+                        <Emptydup/>
+                        </Inputbox>
                     </div>
+                </Innerbox>
+                {/* <div style={{width:"640px",padding:"10px 0px", borderBottom:"1px solid rgb(51, 51, 51)"}}></div> */}
+                <Innerbox style={{padding:"10px 0px", borderBottom:"1px solid rgb(51, 51, 51)"}}></Innerbox>
+                <Innerbox>
+                    <Inputbox padding="10px 0px 10px 20px">
+                    <Boxtxtid>이용약관동의<span style={{color:"rgb(238, 106, 123)"}}>*</span></Boxtxtid>
+                    <Boxinput>
+                        <Divcircle2></Divcircle2>
+                        <Divcircle></Divcircle>
+                        <Divcircle></Divcircle>
+                        <Divcircle></Divcircle>
+                        <Divcircle></Divcircle>
+                        <Divcircle></Divcircle>
+                    </Boxinput>
+                    </Inputbox>
                 </Innerbox>
             </BackSign>
         </div>
