@@ -5,6 +5,8 @@ import RadioGroup from "../component/RadioGroup";
 import Radio from "../component/Radio";
 import { ReactComponent as CheckboxBtn } from "../svg/CheckboxBtn.svg";
 import { ReactComponent as AfterCheckbtn } from "../svg/AfterCheckbtn.svg";
+import ASD from  "../svg/AfterCheckbtn.svg";
+import QWE from "../svg/CheckboxBtn.svg";
 
 
 export default function Signup() {
@@ -354,7 +356,7 @@ export default function Signup() {
                                         onChange={(e) => handleAllCheck(e.target.checked)}
                                         // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제 (하나라도 해제 시 선택 해제)
                                         checked={checkItems.length === data.length ? true : false} />
-                                        <label for="chA" id="chL" style={{position:"relative", left:"3px", top:"3px"}}>{checkItems.length === data.length ? <AfterCheckbtn/>:<CheckboxBtn/>}</label>
+                                        <label for="chA" id="chL" style={{position:"relative", left:"3px", top:"3px"}}><img alt="" src={checkItems.length === data.length ? QWE:ASD}/></label>
                                     <span style={{ paddingLeft: "12px" }}>전체 동의합니다.</span>
                                 </Labeltxt>
                                 <Necinput borderBottom="none" textAlign="center" style={{ paddingLeft: "36px", top: "8px", height: "17.8px" }}>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.
@@ -372,11 +374,16 @@ export default function Signup() {
                                                     onChange={(e) => handleSingleCheck(e.target.checked, data.id)}
                                                     // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
                                                     checked={checkItems.includes(data.id) ? true : false} onClick={data.id}/>
-                                                 <label for="chA" name={`select-${data.id}`} 
+                                                 {/* <label for="chA" name={`select-${data.id}`} 
                                                  onChange={(e) => handleSingleCheck(e.target.checked, data.id)}
                                                  // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
                                                  checked={checkItems.includes(data.id) ? true : false}
-                                                 style={{position:"relative", left:"3px", top:"3px"}}>{ checkItems.length === data.length ?<AfterCheckbtn/>:<CheckboxBtn/>}</label>
+                                                 style={{position:"relative", left:"3px", top:"3px"}}>{ checkItems.length === data.length ?<AfterCheckbtn/>:<CheckboxBtn/>}</label> */}
+                                                 <img for="chA" name={`select-${data.id}`} 
+                                                 onChange={(e) => handleSingleCheck(e.target.checked, data.id)}
+                                                 // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
+                                                 checked={checkItems.includes(data.id) ? true : false}
+                                                 alt="" src={checkItems.includes(data.id) ? QWE:ASD}/>
                                             </div>
                                             <span style={{ paddingLeft: "12px" }}>{data.title}</span>
                                             <NecCheckbox> {data.id === 3 || data.id === 2 ? "(선택)" : "(필수)"}</NecCheckbox>
