@@ -4,8 +4,11 @@ import { useState } from "react";
 import RadioGroup from "../component/RadioGroup";
 import Radio from "../component/Radio";
 import { ReactComponent as CheckboxBtn } from "../svg/CheckboxBtn.svg";
+import { ReactComponent as AfterCheckbtn } from "../svg/AfterCheckbtn.svg";
+
 
 export default function Signup() {
+    const [Cimg, setCimg] =useState(false);
 
     const data = [
         { id: 0, title: '이용약관 동의' },
@@ -193,7 +196,7 @@ export default function Signup() {
     `
 
     const Labeltxt = styled.label`
-        font-size: ${(props)=> props.fontSize || "14px"};
+        font-size: ${(props) => props.fontSize || "14px"};
         position: relative;
     display: flex;
     -webkit-box-align: center;
@@ -225,6 +228,7 @@ export default function Signup() {
     font-size: 16px;
     font-weight: 500;
     `
+
 
     return (
         <div>
@@ -340,32 +344,34 @@ export default function Signup() {
                         <Boxinput>
                             <Divcircle2>
                                 <Labeltxt fontSize="18px">
-                                
-                                <input type='checkbox' name='select-all' 
-                                    onChange={(e) => handleAllCheck(e.target.checked)}
-                                    // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제 (하나라도 해제 시 선택 해제)
-                                    checked={checkItems.length === data.length ? true : false} ></input>
-                                <span style={{paddingLeft:"12px"}}>전체 동의합니다.</span>
+
+                                    <input type='checkbox' name='select-all' id="chA"
+                                        onChange={(e) => handleAllCheck(e.target.checked)}
+                                        // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제 (하나라도 해제 시 선택 해제)
+                                        checked={checkItems.length === data.length ? true : false} onClick={()=>setCimg(!Cimg)}/>
+                                        <label for="chA"><div>{Cimg ? <AfterCheckbtn/>:<CheckboxBtn/>}</div></label>
+                                    <span style={{ paddingLeft: "12px" }}>전체 동의합니다.</span>
                                 </Labeltxt>
-                                <Necinput borderBottom="none" textAlign="center" style={{paddingLeft:"36px",top: "8px", height:"17.8px" }}>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.
-                               
+                                <Necinput borderBottom="none" textAlign="center" style={{ paddingLeft: "36px", top: "8px", height: "17.8px" }}>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.
+
                                 </Necinput>
-                                
+
                             </Divcircle2>
                             {data?.map((data, key) => (
                                 <div key={key}>
                                     <Divcircle>
-                                    <Labeltxt>
-                                        <div>
-                        
-                                            <input type='checkbox' name={`select-${data.id}`}
-                                                onChange={(e) => handleSingleCheck(e.target.checked, data.id)}
-                                                // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
-                                                checked={checkItems.includes(data.id) ? true : false} />
-                                        </div>
-                                        <span style={{ paddingLeft: "12px" }}>{data.title}</span>
-                                        <NecCheckbox> {data.id===3 || data.id === 2 ? "(선택)":"(필수)"}</NecCheckbox>
-                                    </Labeltxt>
+                                        <Labeltxt>
+                                            <div>
+
+                                                <input type='checkbox' name={`select-${data.id}`}
+                                                    onChange={(e) => handleSingleCheck(e.target.checked, data.id)}
+                                                    // 체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
+                                                    checked={checkItems.includes(data.id) ? true : false} />
+                                                
+                                            </div>
+                                            <span style={{ paddingLeft: "12px" }}>{data.title}</span>
+                                            <NecCheckbox> {data.id === 3 || data.id === 2 ? "(선택)" : "(필수)"}</NecCheckbox>
+                                        </Labeltxt>
                                     </Divcircle>
                                 </div>
                             ))}
@@ -373,9 +379,9 @@ export default function Signup() {
                     </Inputbox>
                 </Innerbox>
                 <Innerbox>
-                <Inputbox padding="40px 0px" style={{borderTop:"1px solid rgb(247, 247, 247)", justifyContent:"center", display:"flex"}}>
-                    <SignupBtn>가입하기</SignupBtn>
-                </Inputbox>
+                    <Inputbox padding="40px 0px" style={{ borderTop: "1px solid rgb(247, 247, 247)", justifyContent: "center", display: "flex" }}>
+                        <SignupBtn>가입하기</SignupBtn>
+                    </Inputbox>
                 </Innerbox>
             </BackSign>
         </div>

@@ -194,3 +194,19 @@
     font-weight: 200;
     color: #333;
 }
+
+input[id="chA"] {
+    display: none;
+}
+
+input[id="chA"] + label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #bcbcbc;
+	cursor: pointer;
+}
+
+input[id="chA"]:checked + label {
+    background-color: #5F0080;
+}
