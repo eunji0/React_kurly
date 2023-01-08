@@ -200,13 +200,9 @@ input[id="chA"] {
 }
 
 input[id="chA"] + label {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	border: 2px solid #bcbcbc;
-	cursor: pointer;
+    /* display: none; */
 }
 
-input[id="chA"]:checked + label {
+/* input[id="chA"]:checked + label {
     background-color: #5F0080;
-}
+} */
