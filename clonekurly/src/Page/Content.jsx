@@ -58,7 +58,7 @@ flex: none;
 const PreSliderBtn = styled.div`
 display: flex;
 justify-content: flex-end;
-bottom: 200px;
+bottom: 230px;
 position: relative;
 width: 52px;
 height: 52px;
@@ -69,10 +69,28 @@ margin-left: 100px;
 const NextSliderBtn = styled.div`
 cursor: pointer;
 position: relative;
-bottom: 250px;
+bottom: 275px;
 width: 52px;
 height: 52px;
 left: 1300px;
+`
+const Countdiv = styled.div`
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 55px;
+    height: 23px;
+    left: 1120px;
+    bottom: 45px;
+    line-height: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 12px;
 `
 
     return (
@@ -90,13 +108,14 @@ left: 1300px;
                             ))}
                         </Flexbox>
                     </Window>
+                    <Countdiv>{current+1} / 3</Countdiv>
                     {
                         isboxHovering ? <div>
                             <PreSliderBtn className="btn" onClick={() => { moveSlide(-1); }}><Nextbtn/></PreSliderBtn>
                     <NextSliderBtn className="btn" onClick={() => { moveSlide(1); }}><Nextbtn/></NextSliderBtn>
                         </div>:<div></div>
                     }
-                    <div></div>
+                    
                 </div>
 
             </div>
