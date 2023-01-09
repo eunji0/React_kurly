@@ -199,10 +199,3 @@ input[id="chA"] {
     display: none;
 }
 
-input[id="chA"] + label {
-    /* display: none; */
-}
-
-/* input[id="chA"]:checked + label {
-    background-color: #5F0080;
-} */
