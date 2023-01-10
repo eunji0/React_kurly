@@ -12,21 +12,14 @@ export default function Content() {
 
     const images = useRef([{ src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/129f346e-53a2-4251-bad4-d69e6dfdd048.jpg" }, { src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/95790893-7e17-4f0b-9357-41d573702055.jpg" }, { src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9492f171-f3a2-4769-b74a-3944983419a1.jpg" }]);
 
-    const imagesHow = useRef([{ src: "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1625031532799l0.jpg" }, { src: "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1599129076892l0.jpg" }, { src: "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1454075986307l0.jpg" }, { src: "	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1577081789558l0.jpg" }, { src: "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655803237641l0.jpg" }])
-
     const [current, setCurrent] = useState(0);
-    const [currentHow, setCurrentHow] = useState(0);
 
     const [style, setStyle] = useState({
         marginLeft: `-${current}00%`
     });
 
-    const [styleHow, setStyleHow] = useState({
-        marginLeft: `-${currentHow * 2}00%`
-    });
 
     const imgSize = useRef(images.current.length);
-    const imgSizeHow = useRef(imagesHow.current.length);
 
     const moveSlide = (i) => {
         let nextIndex = current + i;
@@ -37,24 +30,9 @@ export default function Content() {
         setCurrent(nextIndex);
     };
 
-    // const moveSlideHow = (i) => {
-    //     let nextIndex = currentHow + i;
-
-    //     if (nextIndex < 0) nextIndex = imgSizeHow.current - 1;
-    //     else if (nextIndex >= imgSizeHow.currentHow) nextIndex = 0;
-
-    //     setCurrentHow(nextIndex);
-    // };
-
-
     useEffect(() => {
         setStyle({ marginLeft: `-${current}00%` });
     }, [current]);
-
-    useEffect(() => {
-        setStyleHow({ marginLeft: `-${currentHow}00%` });
-    }, [currentHow]);
-
 
 
     const Window = styled.div`
@@ -69,11 +47,6 @@ export default function Content() {
     display: flex;
     `
 
-    const FlexHow = styled.div`
-        width: 1050px;
-        overflow: hidden;
-    `
-
     const InnerImg = styled.div`
     width: 1519.2px;
 min-width: 1050px;
@@ -83,17 +56,6 @@ background-position: 50% 50%;
 background-size:cover;
 background-repeat: no-repeat;
 flex: none;
-`
-
-    const InnerImgHow = styled.div`
-    width: 249px;
-height: 320px;
-object-fit: cover;
-background-position: 50% 50%;
-background-size:cover;
-background-repeat: no-repeat;
-flex: none;
-margin-right: 18px;
 `
 
     const PreSliderBtn = styled.div`
@@ -166,16 +128,6 @@ left: 1300px;
     letter-spacing: -0.26px;
     font-weight: 500;
     `
-
-    const Nbtn = styled.div`
-    transform: translate(50%, -50%) rotate(180deg);
-    position: absolute;
-    border: 0px;
-    outline: 0px;
-    width: 60px;
-    height: 60px;
-    `
-
     return (
         <div>
             <TitleDiv>
@@ -207,18 +159,6 @@ left: 1300px;
                     <HowDiv>
                         <HowSpan>이 상품 어때요?</HowSpan>
                     </HowDiv>
-                    <FlexHow>
-                    <Flexbox className="flexbox" style={styleHow}>
-                        {imagesHow.current.map((img, i) => (
-                            <InnerImgHow
-                                key={i}
-                                className="img"
-                                style={{ backgroundImage: `url(${img.src})` }}
-                            ></InnerImgHow>
-                        ))}
-                    </Flexbox>
-                    </FlexHow>
-                    <Nbtn><NBtn/></Nbtn>
                 </InnerDiv>
             </TitleDiv>
         </div>
