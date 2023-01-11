@@ -201,8 +201,7 @@ input[id="chA"] {
 
 .slick-prev {
     left: 55px !important;
-    top:50px !important;
-    background-color: yellow !important;
+    top:150px !important;
     z-index: 1;
 }
 
