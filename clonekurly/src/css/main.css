@@ -199,3 +199,25 @@ input[id="chA"] {
     display: none;
 }
 
+.slick-prev {
+    left: 55px !important;
+    top:50px !important;
+    background-color: yellow !important;
+    z-index: 1;
+}
+
+.slick-slide {
+    height: 370px !important;
+}
+
+.slick-next {
+    right: 155px !important;
+}
+
+.slick-next:before {
+    display: none !important;
+}
+
+.slick-prev:before {
+    display: none !important;
+}

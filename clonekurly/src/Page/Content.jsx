@@ -3,165 +3,62 @@ import styled from "styled-components";
 import { useState, useEffect, useRef } from "react";
 import { ReactComponent as Nextbtn } from "../svg/Nextbtn.svg";
 import { ReactComponent as NBtn } from "../svg/NBtn.svg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-
-export default function Content() {
-
-    //호버
-    const [isboxHovering, setIsboxHovering] = useState(0);
-
-    const images = useRef([{ src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/129f346e-53a2-4251-bad4-d69e6dfdd048.jpg" }, { src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/95790893-7e17-4f0b-9357-41d573702055.jpg" }, { src: "https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9492f171-f3a2-4769-b74a-3944983419a1.jpg" }]);
-
-    const [current, setCurrent] = useState(0);
-
-    const [style, setStyle] = useState({
-        marginLeft: `-${current}00%`
-    });
-
-
-    const imgSize = useRef(images.current.length);
-
-    const moveSlide = (i) => {
-        let nextIndex = current + i;
-
-        if (nextIndex < 0) nextIndex = imgSize.current - 1;
-        else if (nextIndex >= imgSize.current) nextIndex = 0;
-
-        setCurrent(nextIndex);
-    };
-
-    useEffect(() => {
-        setStyle({ marginLeft: `-${current}00%` });
-    }, [current]);
-
-
-    const Window = styled.div`
-        background: coral;
-        width: 1519px;
-        height: 370px;
-        overflow: hidden;
-    `
-
-
-    const Flexbox = styled.div`
-    display: flex;
-    `
-
-    const InnerImg = styled.div`
+const TitleDiv = styled.div`
     width: 1519.2px;
-min-width: 1050px;
-height: 370px;
-object-fit: cover;
+    height: 370px;
+    overflow: hidden;
+`
+const Bannerimg =styled.div`
+    height: 370px;
+    z-index: 0;
+    object-fit: cover;
 background-position: 50% 50%;
 background-size:cover;
 background-repeat: no-repeat;
 flex: none;
 `
-
-    const PreSliderBtn = styled.div`
-display: flex;
-justify-content: flex-end;
-position: absolute;
-top: 50px;
-width: 52px;
-height: 52px;
-top: 300px;
-transform: rotate(180deg);
-margin-left: 100px;
-`
-
-    const NextSliderBtn = styled.div`
-cursor: pointer;
-position: absolute;
-top: 300px;
-width: 52px;
-height: 52px;
-left: 1300px;
-`
-    const Countdiv = styled.div`
-    position: relative;
-    color: rgb(255, 255, 255);
-    background: rgba(0, 0, 0, 0.15);
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 55px;
-    height: 23px;
-    left: 1120px;
-    bottom: 45px;
-    line-height: 23px;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 12px;
-`
-
-    const TitleDiv = styled.div`
-    height: 100%;
-    margin-bottom: 30px;
-`
-
-    const InnerDiv = styled.div`
-    width: 1050px;
-    margin: 0px auto;
-    padding: 40px 0px;
-`
-
-    const HowDiv = styled.div`
-        margin-bottom: 27px;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-`
-
-    const HowSpan = styled.span`
-    position: relative;
-    display: flex;
-    padding: 8px 0px 8px 8px;
-    color: rgb(51, 51, 51);
-    font-size: 28px;
-    line-height: 1.15;
-    letter-spacing: -0.26px;
-    font-weight: 500;
-    `
-    return (
+export default function Content(){
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: (
         <div>
-            <TitleDiv>
-                <div className="bannerinner">
-                    <Window className="window" onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
-                        <Flexbox className="flexbox" style={style}>
-                            {images.current.map((img, i) => (
-                                <InnerImg
-                                    key={i}
-                                    className="img"
-                                    style={{ backgroundImage: `url(${img.src})` }}
-                                ></InnerImg>
-                            ))}
-                        </Flexbox>
-                    </Window>
-                    <Countdiv>{current + 1} / 3</Countdiv>
-                    {
-                        isboxHovering ? <div>
-                            <PreSliderBtn className="btn" onClick={() => { moveSlide(-1); }}><Nextbtn /></PreSliderBtn>
-                            <NextSliderBtn className="btn" onClick={() => { moveSlide(1); }}><Nextbtn /></NextSliderBtn>
-                        </div> : <div></div>
-                    }
-
-                </div>
-
-            </TitleDiv>
-            <TitleDiv>
-                <InnerDiv>
-                    <HowDiv>
-                        <HowSpan>이 상품 어때요?</HowSpan>
-                    </HowDiv>
-                </InnerDiv>
-            </TitleDiv>
+            <button type="button">
+                <Nextbtn/>
+            </button>
         </div>
+      ),
+      nextArrow: (
+        <div>
+            <button type="button">
+                <Nextbtn/>
+            </button>
+        </div>
+    ),
+
+    };
+
+    return (
+        <TitleDiv>
+            <Slider {...settings}>
+          <div>
+            <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/129f346e-53a2-4251-bad4-d69e6dfdd048.jpg)` }}/>
+          </div>
+          <div>
+          <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/95790893-7e17-4f0b-9357-41d573702055.jpg)` }}/>
+          </div>
+          <div>
+          <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9492f171-f3a2-4769-b74a-3944983419a1.jpg)` }}/>
+          </div>
+        </Slider>
+        </TitleDiv>
     );
 }
 
