@@ -6,6 +6,7 @@ import { ReactComponent as NBtn } from "../svg/NBtn.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
 const TitleDiv = styled.div`
     width: 1519.2px;
@@ -46,7 +47,6 @@ const Nexbtn = styled.div`
 `
 
 const CountBox = styled.div`
-        position: absolute;
     color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0.15);
     z-index: 10;
@@ -57,12 +57,13 @@ const CountBox = styled.div`
     justify-content: center;
     width: 55px;
     height: 23px;
-    right: 320px;
-    bottom: 200px;
     line-height: 23px;
     font-size: 14px;
     font-weight: 400;
     border-radius: 12px;
+    position: absolute;
+    top: 480px;
+    left: 1100px;
     `
 
 const HowDiv = styled.div`
@@ -91,9 +92,13 @@ const HowTitle = styled.div`
 
     const HowNexbtn = styled.div`
         transform: translate(50%, -50%) rotate(180deg);
-        position: relative;
-        top:-175px;
-        left: 1040px;
+        position: absolute;
+        left: 105px;
+    `
+
+    const Bnrimg = styled.img`
+        width: 1050px;
+        height: 140px;
     `
 
 export default function Content() {
@@ -144,9 +149,11 @@ export default function Content() {
             </div>
         ),
         nextArrow: (
+            <div>
             <HowNexbtn>
                 <NBtn/>
             </HowNexbtn>
+            </div>
         )
     };
 
@@ -193,6 +200,12 @@ export default function Content() {
                     </HowDiv>
                 </HowDiv>
             </div>
+            <div>
+                <HowDiv>
+                    <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg"/></Link>
+                </HowDiv>
+            </div>
+
         </div>
     );
 }
