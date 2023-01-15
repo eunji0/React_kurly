@@ -101,6 +101,20 @@ const HowTitle = styled.div`
         height: 140px;
     `
 
+    const DeliveryA = styled.div`
+        position: sticky;
+        top:-200px;
+        width: 80px;
+        background-color: yellow;
+        height: 100px;
+    /* transform: translateY(-50%);
+   
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(51, 51, 51);
+    letter-spacing: -0.3px; */
+    `
+
 export default function Content() {
     //호버
     const [isboxHovering, setIsboxHovering] = useState(0);
@@ -205,7 +219,9 @@ export default function Content() {
                     <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg"/></Link>
                 </HowDiv>
             </div>
-
+            <div>
+                <DeliveryA></DeliveryA>
+            </div>
         </div>
     );
 }
