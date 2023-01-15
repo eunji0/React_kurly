@@ -69,7 +69,7 @@ const CountBox = styled.div`
 const HowDiv = styled.div`
         width: 1050px;
         margin: 0px auto;
-        padding: ${(props)=> props.padding || "40px 0px"};
+        padding: ${(props) => props.padding || "40px 0px"};
     `
 
 const HowTitle = styled.div`
@@ -85,34 +85,57 @@ const HowTitle = styled.div`
     margin-top: 50px;
     `
 
-    const HowPrebtn = styled.div`
+const HowPrebtn = styled.div`
         position: relative;
         right: 90px;
     `
 
-    const HowNexbtn = styled.div`
+const HowNexbtn = styled.div`
         transform: translate(50%, -50%) rotate(180deg);
         position: absolute;
         left: 105px;
     `
 
-    const Bnrimg = styled.img`
+const Bnrimg = styled.img`
         width: 1050px;
         height: 140px;
     `
 
-    const DeliveryA = styled.div`
-        position: sticky;
-        top:-200px;
+const DeliveryA = styled.div`
+        /* position: absolute;
+        top: 660px;
         width: 80px;
-        background-color: yellow;
-        height: 100px;
-    /* transform: translateY(-50%);
-   
+        left: 1420px; */
+        position: absolute;
+    top: 516px;
+    right: 20px;
+    bottom: -93px;
+    z-index: 1;
+    margin-top: 93px;
+    `
+
+const DeliveryS = styled.div`
+        /* position: sticky;
+        width: 80px;
+        top:50%; */
+        position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
     font-size: 12px;
     line-height: 16px;
     color: rgb(51, 51, 51);
-    letter-spacing: -0.3px; */
+    letter-spacing: -0.3px;
+    `
+
+const DeliveryD = styled.div`
+        height: 120px;
+        margin-bottom: 7px;
+    `
+
+const DeliveryI = styled.img`
+        width: 80px;
+        height: 120px;
     `
 
 export default function Content() {
@@ -159,14 +182,14 @@ export default function Content() {
         slidesToScroll: 4,
         prevArrow: (
             <div>
-                <HowPrebtn><NBtn/></HowPrebtn>
+                <HowPrebtn><NBtn /></HowPrebtn>
             </div>
         ),
         nextArrow: (
             <div>
-            <HowNexbtn>
-                <NBtn/>
-            </HowNexbtn>
+                <HowNexbtn>
+                    <NBtn />
+                </HowNexbtn>
             </div>
         )
     };
@@ -186,6 +209,13 @@ export default function Content() {
                     </div>
                 </Slider>
                 <CountBox>{current + 1} / 3</CountBox>
+                <DeliveryA>
+                    <DeliveryS>
+                        <DeliveryD>
+                            <DeliveryI alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png" />
+                        </DeliveryD>
+                    </DeliveryS>
+                </DeliveryA>
             </TitleDiv>
             <div>
                 <HowDiv>
@@ -216,12 +246,10 @@ export default function Content() {
             </div>
             <div>
                 <HowDiv>
-                    <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg"/></Link>
+                    <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg" /></Link>
                 </HowDiv>
             </div>
-            <div>
-                <DeliveryA></DeliveryA>
-            </div>
+
         </div>
     );
 }
