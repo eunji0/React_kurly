@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from 'react-router-dom';
+import { ReactComponent as Menunext } from "../svg/Menunext.svg";
 
 const TitleDiv = styled.div`
     width: 1519.2px;
@@ -194,6 +195,26 @@ export default function Content() {
         )
     };
 
+    const Menusettings = {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        prevArrow: (
+            <div>
+                <HowPrebtn><NBtn /></HowPrebtn>
+            </div>
+        ),
+        nextArrow: (
+            <div>
+                <HowNexbtn>
+                    <NBtn />
+                </HowNexbtn>
+            </div>
+        )
+    };
+
     return (
         <div>
             <TitleDiv onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
@@ -249,7 +270,39 @@ export default function Content() {
                     <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg" /></Link>
                 </HowDiv>
             </div>
-
+            <div>
+                <HowDiv>
+                    <HowTitle>놓치면 후회할 가격 <span style={{paddingTop:"5px"}}><Menunext/></span></HowTitle>
+                    <HowDiv padding="0px">
+                        <Slider {...Menusettings}>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a9e5598f-0b8f-4ccc-8a82-6b61318729a1.jpg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/165303917855l0.jpeg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1653034484643l0.jpeg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/ef3f65b8-a290-453b-ae04-14affdf8f29c.jpg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://3p-image.kurly.com/cdn-cgi/image/quality=85,width=400/product-image/5d814711-a9c1-4632-8c1a-679c1b4d33e8/935f2464-c389-4eea-bbea-917665831aac.jpg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1648210798662l0.jpg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1619587682331l0.jpg)` }} />
+                            </div>
+                            <div>
+                                <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1627352948969l0.jpg)` }} />
+                            </div>
+                        </Slider>
+                    </HowDiv>
+                </HowDiv>
+            </div>
         </div>
     );
 }
