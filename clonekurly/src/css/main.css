@@ -18,14 +18,6 @@
     cursor: pointer;
 }
 
-.tin12-la {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    right: -25px;
-    top: 50px;
-}
-
 .mainicon {
     margin-right: 20px;
 }
@@ -37,11 +29,6 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-}
-
-.category {
-    display: flex;
-    flex-direction: row;
 }
 
 

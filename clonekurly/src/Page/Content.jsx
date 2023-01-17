@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
+import { useState} from "react";
 import { ReactComponent as Nextbtn } from "../svg/Nextbtn.svg";
 import { ReactComponent as NBtn } from "../svg/NBtn.svg";
 import Slider from "react-slick";
