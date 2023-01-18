@@ -3,6 +3,7 @@ import Header from "./component/Header";
 import Content from "./Page/Content";
 import Signup from "./Page/Signup";
 import Login from "./Page/Login";
+import New from "./Page/New";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
          <Route path="/" element={<Content/>} />
          <Route path="/signup" element={<Signup/>}/>
          <Route path="login" element={<Login/>}/>
-         
+         <Route path="/new" element={<New/>}/>
       </Routes>
       </BrowserRouter>
     </div>

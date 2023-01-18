@@ -135,14 +135,14 @@ const Menutxt = styled.div`
     display: flex;
     align-items: flex-end;
     cursor: pointer;
-    &:hover {
+    &:active {
         color: #5f0080 !important;
     }
 `
 
 const Txtunder = styled.span`
     height: 20px;
-    &:hover {
+    &:active {
     color: #5f0080;
     border-bottom: 1px solid #5f0080;
 }
@@ -266,7 +266,7 @@ export default function Header() {
                                 <Menutxt className="menu-txt">카테고리</Menutxt>
                             </Category>
                             <div className="menu">
-                                <Menutxt className="menu-txt tt"><Txtunder>신상품</Txtunder></Menutxt>
+                                <Link to="/new"><Menutxt className="menu-txt tt"><Txtunder>신상품</Txtunder></Menutxt></Link>
                                 <Menutxt className="menu-txt tt"><Txtunder>베스트</Txtunder></Menutxt>
                                 <Menutxt className="menu-txt tt"><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
                                 <Menutxt className="menu-txt tt"><Txtunder>특가/혜택</Txtunder></Menutxt>
