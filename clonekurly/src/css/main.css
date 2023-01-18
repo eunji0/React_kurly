@@ -1,9 +1,5 @@
 
 
-.top-in2{
-    height: 56px;
-}
-
 .login {
     color: #333333;
     margin-right: 10px;
@@ -32,16 +28,8 @@
 }
 
 
-.menu {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 20px;
-}
-
 .tt {
     justify-content: center;
-    width: 150px;
     line-height: 20px;
     text-align: center;
 }

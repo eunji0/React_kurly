@@ -50,7 +50,7 @@ const Nexbtn = styled.div`
 const CountBox = styled.div`
     color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0.15);
-    z-index: 10;
+    z-index: 0;
     display: flex;
     -webkit-box-align: center;
     align-items: center;

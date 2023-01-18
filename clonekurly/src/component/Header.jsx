@@ -6,7 +6,7 @@ import { ReactComponent as Menu } from "../svg/Menu.svg";
 import { ReactComponent as MenuClick } from "../svg/MenuClick.svg";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 const StyledSearch = styled.button`
   background-color: transparent;
@@ -135,17 +135,17 @@ const Menutxt = styled.div`
     display: flex;
     align-items: flex-end;
     cursor: pointer;
-    &:active {
-        color: #5f0080 !important;
-    }
+    /* &:hover {
+        color:#5f0080 !important;
+    } */
 `
 
 const Txtunder = styled.span`
     height: 20px;
-    &:active {
-    color: #5f0080;
-    border-bottom: 1px solid #5f0080;
-}
+    &:hover {
+        color:#5f0080 !important;
+         border-bottom: 1px solid #5f0080 !important;
+    }
 `
 
 const Guideline = styled.div`
@@ -212,9 +212,77 @@ const CartImg = styled.div`
     }
 `
 
+const Topin2 = styled.div`
+    height: 56px;
+    position: fixed;
+    left: 0px;
+    min-width: 1050px;
+    letter-spacing: -0.3px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px;
+    width: 100%;
+    z-index: 1;
+`
+
+const FakeBox = styled.div`
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-left: 14px;
+    border-radius: 6px;
+    box-shadow: rgb(247 247 247) 0px 0px 0px 1px inset;
+    position: fixed;
+    z-index: 102;
+    top: 10px;
+    width: 242px;
+    height: 36px;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    margin-left: 120px;
+    left: 50%;
+`
+
+const HeaderMenu = styled.div`
+    display: flex;
+    flex-direction: row;
+    position: relative;
+`
+
+const Fakesearch = styled.input`
+    width: 193px;
+    padding-right: 22px;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgb(51, 51, 51);
+    line-height: 18px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    letter-spacing: -0.33px;
+`
+
+const FakeSearchimg = styled.div`
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M24 24H6V6h18z'/%3E%3Cpath d='M22.5 22.5h-15v-15h15z'/%3E%3Cg stroke='%23333' stroke-linecap='square' stroke-linejoin='round' stroke-width='1.6'%3E%3Cpath d='M18.825 13.352c0 1.725-.75 3.225-1.95 4.2-.975.825-2.175 1.275-3.525 1.275a5.457 5.457 0 0 1-5.475-5.475 5.457 5.457 0 0 1 5.475-5.475c3-.075 5.475 2.4 5.475 5.475zM21.375 21.375l-3.75-3.75'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    width: 30px;
+    height: 30px;
+    border: none;
+`
+
 export default function Header() {
     //호버
     const [isboxHovering, setIsboxHovering] = useState(0);
+
+    //스크롤
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const updateScroll = () => {
+        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    }
+    useEffect(()=>{
+        window.addEventListener('scroll', updateScroll);
+    });
 
     return (
         <div>
@@ -259,25 +327,30 @@ export default function Header() {
                             </div>
                         </Topin12>
                     </Topin1>
-                    <div className="top-in2">
+                    <Topin2 className="top-in2" aria-hidden={scrollPosition < 20 ? "true" : "false"} style={{top: scrollPosition < 20 ? "100px": "0px"}}>
                         <div className="topin2-inner">
                             <Category className="category" onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
                                 <div style={{marginRight:"14px", marginTop:"3px"}}>{isboxHovering ? <MenuClick/> : <Menu/>}</div>
                                 <Menutxt className="menu-txt">카테고리</Menutxt>
                             </Category>
-                            <div className="menu">
-                                <Link to="/new"><Menutxt className="menu-txt tt"><Txtunder>신상품</Txtunder></Menutxt></Link>
-                                <Menutxt className="menu-txt tt"><Txtunder>베스트</Txtunder></Menutxt>
-                                <Menutxt className="menu-txt tt"><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
-                                <Menutxt className="menu-txt tt"><Txtunder>특가/혜택</Txtunder></Menutxt>
-                            </div>
+                            <HeaderMenu className="menu" style={{right: scrollPosition < 20 ? "0px":"105px"}}>
+                                <Link to="/new"><Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>신상품</Txtunder></Menutxt></Link>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>베스트</Txtunder></Menutxt>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>특가/혜택</Txtunder></Menutxt>
+                                {
+                                    scrollPosition <20 ? "":<FakeBox><Fakesearch placeholder="검색어를 입력해주세요"></Fakesearch>
+                                    <StyledSearch style={{paddingRight:"5px !important"}}><FakeSearchimg/></StyledSearch>
+                                    </FakeBox>
+                                }
+                            </HeaderMenu>
                             <div className="guide">
                                 <Guideline className="guideline">
                                     <Guidetxt className="guidetxt">샛별・택배<Guidetxt2 className="guidetxt2">배송안내</Guidetxt2></Guidetxt>
                                 </Guideline>
                             </div>
                         </div>
-                    </div>
+                    </Topin2>
                 </Topinner>
             </MainTop>
         </div>
