@@ -327,19 +327,19 @@ export default function Header() {
                             </div>
                         </Topin12>
                     </Topin1>
-                    <Topin2 className="top-in2" aria-hidden={scrollPosition < 20 ? "true" : "false"} style={{top: scrollPosition < 20 ? "100px": "0px"}}>
+                    <Topin2 className="top-in2" aria-hidden={scrollPosition < 40 ? "true" : "false"} style={{top: scrollPosition < 40 ? "100px": "0px"}}>
                         <div className="topin2-inner">
                             <Category className="category" onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
                                 <div style={{marginRight:"14px", marginTop:"3px"}}>{isboxHovering ? <MenuClick/> : <Menu/>}</div>
                                 <Menutxt className="menu-txt">카테고리</Menutxt>
                             </Category>
-                            <HeaderMenu className="menu" style={{right: scrollPosition < 20 ? "0px":"105px"}}>
-                                <Link to="/new"><Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>신상품</Txtunder></Menutxt></Link>
-                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>베스트</Txtunder></Menutxt>
-                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
-                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <20 ? "150px":"120px"}}><Txtunder>특가/혜택</Txtunder></Menutxt>
+                            <HeaderMenu className="menu" style={{right: scrollPosition < 40 ? "0px":"105px"}}>
+                                <Link to="/new"><Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>신상품</Txtunder></Menutxt></Link>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>베스트</Txtunder></Menutxt>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
+                                <Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>특가/혜택</Txtunder></Menutxt>
                                 {
-                                    scrollPosition <20 ? "":<FakeBox><Fakesearch placeholder="검색어를 입력해주세요"></Fakesearch>
+                                    scrollPosition <40 ? "":<FakeBox><Fakesearch placeholder="검색어를 입력해주세요"></Fakesearch>
                                     <StyledSearch style={{paddingRight:"5px !important"}}><FakeSearchimg/></StyledSearch>
                                     </FakeBox>
                                 }
