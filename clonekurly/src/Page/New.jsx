@@ -99,6 +99,72 @@ const TxtRecipe = styled.div`
     border-bottom: 1px solid rgb(221, 221, 221);
 `
 
+const NewContain = styled.div`
+    position: relative;
+    display: flex;
+    width: 1050px;
+    margin-top: 50px;
+    margin-bottom: 75px;
+`
+
+const Filter = styled.div`
+    position: sticky;
+    width: 220px;
+    flex-shrink: 0;
+    height: 100%;
+    max-height: calc(100vh - 120px);
+    top: 80px;
+    margin-right: 47px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    overflow: hidden scroll;
+`
+
+const Inner = styled.div`
+    width: 100%;
+`
+
+const FilterReset = styled.div`
+        position: sticky;
+    top: 0px;
+    display: flex;
+    z-index: 20;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    line-height: 20px;
+`
+
+const ResetImg = styled.div`
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.78 3.96303C12.504 2.16973 10.4086 1 8.04 1C4.15192 1 1 4.15192 1 8.04C1 11.9281 4.15192 15.08 8.04 15.08C11.9281 15.08 15.08 11.9281 15.08 8.04' stroke='%23ddd' stroke-width='1.6' stroke-linecap='square' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M14.4933 1L14.4933 4.52H10.9733' stroke='%23ddd' stroke-width='1.6' stroke-linecap='square' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+    width: 12px;
+    height: 12px;
+`
+
+const Reset = styled.button`
+        display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    pointer-events: none;
+    border: none;
+    background-color: #fff;
+`
+
+const ResetTxt = styled.span`
+        margin-left: 5px;
+    font-weight: 500;
+    color: rgb(221, 221, 221);
+`
+
+const FilterTxt = styled.div`
+        font-weight: 500;
+    font-size: 15px;
+    color: rgb(51, 51, 51);
+`
+
 export default function New(){
     return(
         <div>
@@ -108,6 +174,16 @@ export default function New(){
                         <Bannerimg alt="" src="https://collection-image.kurly.com/product-collections/2451/sNzW2Z2kJPIMWnOvw29EpKDlQxcSvWrvoSHwNnw4.png"/>
                     </Banner>
                     <NewitemTxt>신상품</NewitemTxt>
+                    <NewContain>
+                        <Filter>
+                            <FilterReset>
+                                <FilterTxt>필터</FilterTxt>
+                                <Reset><span><ResetImg/></span><ResetTxt>초기화</ResetTxt></Reset>
+                            </FilterReset>
+                            <div></div>
+                        </Filter>
+                        <Inner></Inner>
+                    </NewContain>
                 </Container>
                 <StickyBanner>
                     <SBanner>

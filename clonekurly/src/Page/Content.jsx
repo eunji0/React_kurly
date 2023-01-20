@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useState} from "react";
+import { useState } from "react";
 import { ReactComponent as Nextbtn } from "../svg/Nextbtn.svg";
 import { ReactComponent as NBtn } from "../svg/NBtn.svg";
 import Slider from "react-slick";
@@ -139,6 +139,82 @@ const DeliveryI = styled.img`
         height: 120px;
     `
 
+const All = styled.div`
+position: relative;
+margin-bottom: 80px;
+`
+
+const Bnrimg_n = styled.img`
+        box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    max-width: 100%;
+`
+
+
+const StickyBanner = styled.div`
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    bottom: -93px;
+    z-index: 1;
+    margin-top: 93px;
+`
+
+const SBanner = styled.div`
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(51, 51, 51);
+    letter-spacing: -0.3px;
+`
+
+const ImgBnr = styled.div`
+    height: 120px;
+    margin-bottom: 7px;
+`
+
+const BoxBnr = styled.div`
+        width: 80px;
+    border-width: 1px 1px 0px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(221, 221, 221);
+    border-right-color: rgb(221, 221, 221);
+    border-left-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-bottom-style: initial;
+    border-bottom-color: initial;
+    background-color: rgb(255, 255, 255);
+`
+
+
+const TxtLevel = styled.div`
+    height: 29px;
+    padding-top: 5px;
+    text-align: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+`
+
+const TxtRecipe = styled.div`
+    height: 29px;
+    padding-top: 5px;
+    text-align: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+`
+
 export default function Content() {
     //호버
     const [isboxHovering, setIsboxHovering] = useState(0);
@@ -217,92 +293,100 @@ export default function Content() {
 
     return (
         <div>
-            <TitleDiv onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
-                <Slider {...settings}>
-                    <div>
-                        <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/129f346e-53a2-4251-bad4-d69e6dfdd048.jpg)` }} />
-                    </div>
-                    <div>
-                        <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/95790893-7e17-4f0b-9357-41d573702055.jpg)` }} />
-                    </div>
-                    <div>
-                        <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9492f171-f3a2-4769-b74a-3944983419a1.jpg)` }} />
-                    </div>
-                </Slider>
-                <CountBox>{current + 1} / 3</CountBox>
-                <DeliveryA>
-                    <DeliveryS>
-                        <DeliveryD>
-                            <DeliveryI alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png" />
-                        </DeliveryD>
-                    </DeliveryS>
-                </DeliveryA>
-            </TitleDiv>
-            <div>
-                <HowDiv>
-                    <HowTitle>이 상품 어때요?</HowTitle>
-                    <HowDiv padding="0px">
-                        <Slider {...Howsettings}>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1625031532799l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1599129076892l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1454075986307l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1577081789558l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1577081789558l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655803237641l0.jpg)` }} />
-                            </div>
-                        </Slider>
+            <All>
+            <StickyBanner>
+                    <SBanner>
+                        <ImgBnr>
+                        <Bnrimg_n alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png"/>
+                        </ImgBnr>
+                        <BoxBnr>
+                            <TxtLevel>등급별 혜택</TxtLevel>
+                            <TxtRecipe>레시피</TxtRecipe>
+                        </BoxBnr>
+                    </SBanner>
+                </StickyBanner>
+                <TitleDiv onMouseOver={() => setIsboxHovering(1)} onMouseOut={() => setIsboxHovering(0)}>
+                    <Slider {...settings}>
+                        <div>
+                            <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/129f346e-53a2-4251-bad4-d69e6dfdd048.jpg)` }} />
+                        </div>
+                        <div>
+                            <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/95790893-7e17-4f0b-9357-41d573702055.jpg)` }} />
+                        </div>
+                        <div>
+                            <Bannerimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9492f171-f3a2-4769-b74a-3944983419a1.jpg)` }} />
+                        </div>
+                    </Slider>
+                    <CountBox>{current + 1} / 3</CountBox>
+                    {/* <DeliveryA>
+                        <DeliveryS>
+                            <DeliveryD>
+                                <DeliveryI alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png" />
+                            </DeliveryD>
+                        </DeliveryS>
+                    </DeliveryA> */}
+                </TitleDiv>
+                <div>
+                    <HowDiv>
+                        <HowTitle>이 상품 어때요?</HowTitle>
+                        <HowDiv padding="0px">
+                            <Slider {...Howsettings}>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1625031532799l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1599129076892l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1454075986307l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1577081789558l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1577081789558l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655803237641l0.jpg)` }} />
+                                </div>
+                            </Slider>
+                        </HowDiv>
                     </HowDiv>
-                </HowDiv>
-            </div>
-            <div>
-                <HowDiv>
-                    <Link to="/"><Bnrimg alt="" src="https://product-image.kurly.com/banner/random-band/pc/img/fd93ed9c-0710-49d5-a1e4-51f4f7604f24.jpg" /></Link>
-                </HowDiv>
-            </div>
-            <div>
-                <HowDiv>
-                    <HowTitle>놓치면 후회할 가격 <span style={{paddingTop:"5px"}}><Menunext/></span></HowTitle>
-                    <HowDiv padding="0px">
-                        <Slider {...Menusettings}>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a9e5598f-0b8f-4ccc-8a82-6b61318729a1.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/165303917855l0.jpeg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1653034484643l0.jpeg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/ef3f65b8-a290-453b-ae04-14affdf8f29c.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://3p-image.kurly.com/cdn-cgi/image/quality=85,width=400/product-image/5d814711-a9c1-4632-8c1a-679c1b4d33e8/935f2464-c389-4eea-bbea-917665831aac.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1648210798662l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1619587682331l0.jpg)` }} />
-                            </div>
-                            <div>
-                                <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1627352948969l0.jpg)` }} />
-                            </div>
-                        </Slider>
+                </div>
+                <div>
+                    <HowDiv>
+                        <HowTitle>놓치면 후회할 가격 <span style={{ paddingTop: "5px" }}><Menunext /></span></HowTitle>
+                        <HowDiv padding="0px">
+                            <Slider {...Menusettings}>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a9e5598f-0b8f-4ccc-8a82-6b61318729a1.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/165303917855l0.jpeg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1653034484643l0.jpeg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/ef3f65b8-a290-453b-ae04-14affdf8f29c.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://3p-image.kurly.com/cdn-cgi/image/quality=85,width=400/product-image/5d814711-a9c1-4632-8c1a-679c1b4d33e8/935f2464-c389-4eea-bbea-917665831aac.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1648210798662l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1619587682331l0.jpg)` }} />
+                                </div>
+                                <div>
+                                    <Howimg style={{ backgroundImage: `url(	https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1627352948969l0.jpg)` }} />
+                                </div>
+                            </Slider>
+                        </HowDiv>
                     </HowDiv>
-                </HowDiv>
-            </div>
+                </div>
+            </All>
         </div>
     );
 }
