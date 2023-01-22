@@ -162,7 +162,7 @@ const Bnrimg_n = styled.img`
 
 const StickyBanner = styled.div`
     position: absolute;
-    top: 70px;
+    top: 510px;
     right: 20px;
     bottom: -93px;
     z-index: 1;
@@ -318,13 +318,6 @@ export default function Content() {
                         </div>
                     </Slider>
                     <CountBox>{current + 1} / 3</CountBox>
-                    {/* <DeliveryA>
-                        <DeliveryS>
-                            <DeliveryD>
-                                <DeliveryI alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png" />
-                            </DeliveryD>
-                        </DeliveryS>
-                    </DeliveryA> */}
                 </TitleDiv>
                 <div>
                     <HowDiv>
