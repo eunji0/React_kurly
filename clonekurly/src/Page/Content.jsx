@@ -63,7 +63,7 @@ const CountBox = styled.div`
     font-weight: 400;
     border-radius: 12px;
     position: absolute;
-    top: 480px;
+    top: 320px;
     left: 1100px;
     `
 

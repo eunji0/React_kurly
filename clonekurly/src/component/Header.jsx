@@ -11,7 +11,7 @@ import {useState, useEffect} from "react";
 const StyledSearch = styled.button`
   background-color: transparent;
   border: none;
-  padding-top: 5px;
+  padding-top: 2px;
 `;
 
 const MainTop = styled.div`
@@ -270,6 +270,13 @@ const FakeSearchimg = styled.div`
     border: none;
 `
 
+const Fakeinsert = styled.div`
+    position: relative;
+    left: 25px;
+    display: flex;
+    flex-direction: row;
+`
+
 export default function Header() {
     //호버
     const [isboxHovering, setIsboxHovering] = useState(0);
@@ -333,7 +340,7 @@ export default function Header() {
                                 <div style={{marginRight:"14px", marginTop:"3px"}}>{isboxHovering ? <MenuClick/> : <Menu/>}</div>
                                 <Menutxt className="menu-txt">카테고리</Menutxt>
                             </Category>
-                            <HeaderMenu className="menu" style={{right: scrollPosition < 40 ? "0px":"105px"}}>
+                            <HeaderMenu className="menu" style={{right: scrollPosition < 40 ? "0px":"95px"}}>
                                 <Link to="/new"><Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>신상품</Txtunder></Menutxt></Link>
                                 <Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>베스트</Txtunder></Menutxt>
                                 <Menutxt className="menu-txt tt" style={{width: scrollPosition <40 ? "150px":"120px"}}><Txtunder>알뜰쇼핑</Txtunder></Menutxt>
@@ -344,11 +351,20 @@ export default function Header() {
                                     </FakeBox>
                                 }
                             </HeaderMenu>
-                            <div className="guide">
+                            {
+                                scrollPosition < 40 ? <div className="guide">
                                 <Guideline className="guideline">
                                     <Guidetxt className="guidetxt">샛별・택배<Guidetxt2 className="guidetxt2">배송안내</Guidetxt2></Guidetxt>
                                 </Guideline>
+                            </div> : <div>
+                            <Fakeinsert className="tin12-la">
+                                <AddressImg className="address mainicon"></AddressImg>
+                                <HeartImg className="like mainicon"></HeartImg>
+                                <CartImg className="cart mainicon"></CartImg>
+                            </Fakeinsert>
                             </div>
+                            }
+                            
                         </div>
                     </Topin2>
                 </Topinner>

@@ -4,6 +4,7 @@ import Content from "./Page/Content";
 import Signup from "./Page/Signup";
 import Login from "./Page/Login";
 import New from "./Page/New";
+import Footer from "./component/Footer";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
          <Route path="login" element={<Login/>}/>
          <Route path="/new" element={<New/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );
