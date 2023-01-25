@@ -200,6 +200,13 @@ const QuestionMark = styled.span`
     height: 20px;
     margin-left: 3px;
 `
+
+const GridSet = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 249px);
+    gap: 31px 18px;
+    width: 100%;
+`
 export default function New(){
     return(
         <div>
@@ -234,6 +241,11 @@ export default function New(){
                                     <Counttxt>높은 가격순</Counttxt>
                                 </HowCount>
                             </InnerMenu>
+                            <GridSet>
+                                {
+                                    
+                                }
+                            </GridSet>
                         </Inner>
                     </NewContain>
                 </Container>
