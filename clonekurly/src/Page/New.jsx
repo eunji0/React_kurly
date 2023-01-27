@@ -207,6 +207,7 @@ const GridSet = styled.div`
     grid-template-columns: repeat(auto-fill, 249px);
     gap: 31px 18px;
     width: 100%;
+    margin-top: 20px;
 `
 
 const Layeritem = styled.div`
@@ -223,6 +224,56 @@ const Lyrimg = styled.div`
     background-color: rgb(245, 245, 245);
     width: 249px;
     height: 320px;
+`
+
+const Detailimg = styled.img`
+    width: 100%;
+    height: 100%;
+`
+
+const Txtdev = styled.div`
+    padding: 14px 10px 0px 0px;
+`
+
+const Txtnow = styled.span`
+    padding-bottom: 2px;
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+    line-height: 19px;
+    letter-spacing: -0.5px;
+`
+
+const Txtname = styled.span`
+        max-height: 58px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: normal;
+    display: -webkit-box;
+    overflow: hidden;
+`
+
+const Txtdetail = styled.span`
+        padding-top: 4px;
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+    line-height: 18px;
+    letter-spacing: normal;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+`
+
+const Txtprice = styled.div`
+        font-weight: 800;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+    padding-top: 8px;
+    color: rgb(51, 51, 51);
 `
 
 export default function New() {
@@ -264,7 +315,13 @@ export default function New() {
                                     newdummy.results.map((item) => {
                                         return (
                                             <Layeritem>
-                                                <Lyrimg><img alt="" src={item.img} /></Lyrimg>
+                                                <Lyrimg><Detailimg alt="" src={item.img} /></Lyrimg>
+                                                <Txtdev>
+                                                    <Txtnow>샛별배송</Txtnow>
+                                                    <Txtname>{item.product_name}</Txtname>
+                                                    <Txtdetail>{item.product_detail}</Txtdetail>
+                                                    <Txtprice>{item.price}원</Txtprice>
+                                                </Txtdev>
                                             </Layeritem>
                                         )
                                     })
