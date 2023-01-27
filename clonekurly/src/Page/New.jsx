@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { newdummy } from "../newdummy";
 
 const All = styled.div`
     position: relative;
@@ -207,20 +208,37 @@ const GridSet = styled.div`
     gap: 31px 18px;
     width: 100%;
 `
-export default function New(){
-    return(
+
+const Layeritem = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 538px;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+`
+
+const Lyrimg = styled.div`
+        overflow: hidden;
+    position: relative;
+    background-color: rgb(245, 245, 245);
+    width: 249px;
+    height: 320px;
+`
+
+export default function New() {
+    return (
         <div>
             <All>
                 <Container>
                     <Banner>
-                        <Bannerimg alt="" src="https://collection-image.kurly.com/product-collections/2451/sNzW2Z2kJPIMWnOvw29EpKDlQxcSvWrvoSHwNnw4.png"/>
+                        <Bannerimg alt="" src="https://collection-image.kurly.com/product-collections/2451/sNzW2Z2kJPIMWnOvw29EpKDlQxcSvWrvoSHwNnw4.png" />
                     </Banner>
                     <NewitemTxt>신상품</NewitemTxt>
                     <NewContain>
                         <Filter>
                             <FilterReset>
                                 <FilterTxt>필터</FilterTxt>
-                                <Reset><span><ResetImg/></span><ResetTxt>초기화</ResetTxt></Reset>
+                                <Reset><span><ResetImg /></span><ResetTxt>초기화</ResetTxt></Reset>
                             </FilterReset>
                             <div></div>
                         </Filter>
@@ -228,7 +246,7 @@ export default function New(){
                             <InnerMenu>
                                 <Countmenu>총 116건</Countmenu>
                                 <HowCount>
-                                    <Counttxt>추천순<QuestionMark/></Counttxt>
+                                    <Counttxt>추천순<QuestionMark /></Counttxt>
                                     <Counttxt>|</Counttxt>
                                     <Counttxt>신상품순</Counttxt>
                                     <Counttxt>|</Counttxt>
@@ -243,7 +261,13 @@ export default function New(){
                             </InnerMenu>
                             <GridSet>
                                 {
-                                    
+                                    newdummy.results.map((item) => {
+                                        return (
+                                            <Layeritem>
+                                                <Lyrimg><img alt="" src={item.img} /></Lyrimg>
+                                            </Layeritem>
+                                        )
+                                    })
                                 }
                             </GridSet>
                         </Inner>
@@ -252,7 +276,7 @@ export default function New(){
                 <StickyBanner>
                     <SBanner>
                         <ImgBnr>
-                        <Bnrimg alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png"/>
+                            <Bnrimg alt="" src="https://res.kurly.com/main/banners/deliveryInfo.png" />
                         </ImgBnr>
                         <BoxBnr>
                             <TxtLevel>등급별 혜택</TxtLevel>
