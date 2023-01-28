@@ -117,7 +117,7 @@ const Filter = styled.div`
     top: 80px;
     margin-right: 47px;
     border-bottom: 1px solid rgb(238, 238, 238);
-    overflow: hidden scroll;
+    /* overflow: hidden scroll; */
 `
 
 const Inner = styled.div`
@@ -138,6 +138,7 @@ const FilterReset = styled.div`
     border-bottom: 1px solid rgb(238, 238, 238);
     line-height: 20px;
 `
+
 
 const ResetImg = styled.div`
     background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.78 3.96303C12.504 2.16973 10.4086 1 8.04 1C4.15192 1 1 4.15192 1 8.04C1 11.9281 4.15192 15.08 8.04 15.08C11.9281 15.08 15.08 11.9281 15.08 8.04' stroke='%23ddd' stroke-width='1.6' stroke-linecap='square' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M14.4933 1L14.4933 4.52H10.9733' stroke='%23ddd' stroke-width='1.6' stroke-linecap='square' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
@@ -286,12 +287,12 @@ export default function New() {
                     </Banner>
                     <NewitemTxt>신상품</NewitemTxt>
                     <NewContain>
-                        <Filter>
+                        <Filter className="Filter">
                             <FilterReset>
                                 <FilterTxt>필터</FilterTxt>
                                 <Reset><span><ResetImg /></span><ResetTxt>초기화</ResetTxt></Reset>
                             </FilterReset>
-                            <div></div>
+                            <div style={{height:"650px", backgroundColor:"yellow"}}></div>
                         </Filter>
                         <Inner>
                             <InnerMenu>
