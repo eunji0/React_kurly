@@ -277,6 +277,9 @@ const Txtprice = styled.div`
     color: rgb(51, 51, 51);
 `
 
+const ScrollInner = styled.div`
+    border-bottom: 1px solid rgb(238, 238, 238);
+`
 export default function New() {
     return (
         <div>
@@ -292,7 +295,15 @@ export default function New() {
                                 <FilterTxt>필터</FilterTxt>
                                 <Reset><span><ResetImg /></span><ResetTxt>초기화</ResetTxt></Reset>
                             </FilterReset>
-                            <div style={{height:"650px", backgroundColor:"yellow"}}></div>
+                            <div style={{height:"600px", overflow:"hidden scroll"}}>
+                                <div>
+                                    <ScrollInner></ScrollInner>
+                                    <ScrollInner></ScrollInner>
+                                    <ScrollInner></ScrollInner>
+                                    <ScrollInner></ScrollInner>
+                                    <ScrollInner></ScrollInner>
+                                </div>
+                            </div>
                         </Filter>
                         <Inner>
                             <InnerMenu>
