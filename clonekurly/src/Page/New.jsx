@@ -280,6 +280,39 @@ const Txtprice = styled.div`
 const ScrollInner = styled.div`
     border-bottom: 1px solid rgb(238, 238, 238);
 `
+
+const BtnCategory = styled.div`
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    overflow: hidden;
+        align-items: center;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(51, 51, 51);    align-items: center;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(51, 51, 51);
+`
+
+const Upimg = styled.div`
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' stroke='%23999' xmlns='http://www.w3.org/2000/svg' class='css-innaj4 e1frj59j6' style='transform: rotate(0deg);'%3E%3Cpath d='M5 11L9 7L13 11' stroke='%23999' stroke-width='1.2'%3E%3C/path%3E%3C/svg%3E");
+    width: 18px;
+    height: 18px;
+`
+
+const Ulinner = styled.ul`
+    transition: all 250ms cubic-bezier(0.83, 0, 0.17, 1) 0s;
+    height: auto;
+    opacity: 1;
+    overflow: hidden;
+    max-height: 100vh;
+`
+
 export default function New() {
     return (
         <div>
@@ -295,9 +328,12 @@ export default function New() {
                                 <FilterTxt>필터</FilterTxt>
                                 <Reset><span><ResetImg /></span><ResetTxt>초기화</ResetTxt></Reset>
                             </FilterReset>
-                            <div style={{height:"600px", overflow:"hidden scroll"}}>
+                            <div style={{height:"600px", overflow:"hidden"}}>
                                 <div>
-                                    <ScrollInner></ScrollInner>
+                                    <ScrollInner>
+                                        <BtnCategory type="button"><div>카테고리</div><Upimg/></BtnCategory>
+                                        <Ulinner></Ulinner>
+                                    </ScrollInner>
                                     <ScrollInner></ScrollInner>
                                     <ScrollInner></ScrollInner>
                                     <ScrollInner></ScrollInner>
