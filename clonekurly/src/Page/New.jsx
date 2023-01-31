@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { newdummy } from "../newdummy";
 
 
+
 const All = styled.div`
     position: relative;
     margin-bottom: 80px;
@@ -315,10 +316,6 @@ const Ulinner = styled.ul`
 `
 
 export default function New() {
-    $("p").click(function(){
-        $(this).hide();
-    });
-    
     return (
         <div>
             <p>안녕하세요</p>
