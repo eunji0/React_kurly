@@ -316,9 +316,6 @@ const Ulinner = styled.ul`
 `
 
 export default function New() {
-    $("p").click(function(){
-        $(this).hide();
-    });
     
     return (
         <div>
