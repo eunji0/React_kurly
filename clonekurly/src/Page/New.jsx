@@ -319,7 +319,6 @@ export default function New() {
     
     return (
         <div>
-            <p>안녕하세요</p>
             <All>
                 <Container>
                     <Banner>
