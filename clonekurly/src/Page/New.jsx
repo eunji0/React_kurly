@@ -315,6 +315,21 @@ const Ulinner = styled.ul`
     max-height: 100vh;
 `
 
+const Cartdiv = styled.div`
+    position: relative;
+    top: -70px;
+    display: flex;
+    justify-content: flex-end;
+    right: 20px;
+`
+
+const Cartimg = styled.div`
+    width: 45px;
+    height: 45px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='45' height='45' viewBox='0 0 45 45'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%232A0038' opacity='.5' cx='22.5' cy='22.5' r='22.5'/%3E%3Cg transform='translate(11.03 14.38)' stroke='%23FFF' stroke-linecap='square' stroke-linejoin='round'%3E%3Cpath stroke-width='1.4' d='m20.46 2.91-2.17 9.23H5.87L3.71 2.91z'/%3E%3Ccircle stroke-width='1.2' cx='16.35' cy='16.86' r='1.7'/%3E%3Ccircle stroke-width='1.2' cx='7.82' cy='16.86' r='1.7'/%3E%3Cpath stroke-width='1.4' d='M0 0h3.02l1.41 5.98'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+`
+
 export default function New() {
     
     return (
@@ -366,7 +381,8 @@ export default function New() {
                                     newdummy.results.map((item) => {
                                         return (
                                             <Layeritem>
-                                                <Lyrimg><Detailimg alt="" src={item.img} /></Lyrimg>
+                                                <Lyrimg><Detailimg alt="" src={item.img}/><Cartdiv><Cartimg/></Cartdiv></Lyrimg>
+                                                
                                                 <Txtdev>
                                                     <Txtnow>샛별배송</Txtnow>
                                                     <Txtname>{item.product_name}</Txtname>
