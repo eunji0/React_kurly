@@ -330,6 +330,13 @@ const Cartimg = styled.div`
 
 `
 
+const CartboxLi = styled.li`
+    display: flex;
+    margin-top: 9px;
+    align-items: center;
+    margin-bottom: 18px;
+`
+
 export default function New() {
     
     return (
